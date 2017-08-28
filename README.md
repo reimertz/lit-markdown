@@ -57,6 +57,6 @@ function markdown(text) {
 markdown`
 # Header
 
-This is a test. 
+This is a test.`
 ```
-`
+
