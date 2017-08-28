@@ -1,8 +1,8 @@
 # lit-markdown
 es6 literal markdown parser
 
-javascript```
 
+```
 function markdown(text) {
   function para(text, line) {
     const trimmed = line.trim()
