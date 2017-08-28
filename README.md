@@ -2,7 +2,7 @@
 es6 literal markdown parser
 
 
-```
+js```
 function markdown(text) {
   function para(text, line) {
     const trimmed = line.trim()
