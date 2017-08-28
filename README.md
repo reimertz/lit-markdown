@@ -2,6 +2,8 @@
 es6 literal markdown parser
 
 
+## Code
+
 ```
 function markdown(text) {
   function para(text, line) {
@@ -48,4 +50,12 @@ function markdown(text) {
     { regex: /<\/blockquote><blockquote>/g, replacement: '\n' } // fix extra blockquote
   ].reduce((text, rule) => text.replace(rule.regex, rule.replacement), text.toString())
 }
+```
+
+## usage
+```
+markdown`
+# Header
+
+This is a test. 
 ```
