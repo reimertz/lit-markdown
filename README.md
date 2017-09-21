@@ -5,7 +5,7 @@ es6 literal markdown parser
 ## Code
 
 ```
-function markdown(text) {
+function markdown(strings, ...values) {
   function para(text, line) {
     const trimmed = line.trim()
     if (/^<\/?(ul|ol|li|h|p|bl)/i.test(trimmed)) {
@@ -48,7 +48,11 @@ function markdown(text) {
     { regex: /<\/ul>\s?<ul>/g, replacement: '' }, // fix extra ul
     { regex: /<\/ol>\s?<ol>/g, replacement: '' }, // fix extra ol
     { regex: /<\/blockquote><blockquote>/g, replacement: '\n' } // fix extra blockquote
-  ].reduce((text, rule) => text.replace(rule.regex, rule.replacement), text.toString())
+  ].reduce((text, rule) => text.replace(rule.regex, rule.replacement),
+    
+    (Array.isArray(strings) ? strings : [strings])
+      .map((part, index) => `${part}${values[index] ? values[index] : ''}`)
+      .join(''))
 }
 ```
 
